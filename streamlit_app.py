@@ -2,7 +2,6 @@ import streamlit as st
 import pickle
 import numpy as np
 import sklearn
-import scipy
 
 # Set Streamlit page configuration
 def set_page_configuration():
@@ -48,9 +47,11 @@ def main():
             fever_days = st.number_input("Number of days with fever:", min_value=0)
             headache_days = st.number_input("Number of days with headache:", min_value=0)
             bodyache_days = st.number_input("Number of days with body ache:", min_value=0)
+            vomiting_days = st.number_input("Number of days with vomiting:", min_value=0)
             
         with right:
-            vomiting_days = st.number_input("Number of days with vomiting:", min_value=0)
+            chills_days = st.number_input("Number of days with chills:", min_value=0)
+            rigors_days = st.number_input("Number of days with rigors:", min_value=0)
             abdominal_discomfort_days = st.number_input("Number of days with abdominal discomfort:", min_value=0)
             cough_days = st.number_input("Number of days with cough:", min_value=0)
             urinal_variation = st.selectbox('Any changes in urination?', list(urinal_variation_map.keys()), key="urinal_variation")
@@ -67,6 +68,8 @@ def main():
                 cough_days,
                 urinal_variation_map[urinal_variation],
                 pallor_map[pallor],
+                chills_days,
+                rigors_days,
                 temp,
                 age,
                 gender_map[gender]
