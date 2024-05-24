@@ -86,7 +86,7 @@ def main():
     if values is not None:
         # Values for prediction
         independent_variables = np.array([values])
-        model_from_pickle = pickle.load(open('extra_trees_model.pkl','rb'))
+        model_from_pickle = pickle.load(open('extra_trees.pkl','rb'))
         prediction = model_from_pickle.predict(independent_variables)
         if prediction[0] == 0:
             st.info('''
